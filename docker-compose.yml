@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    # GPUを使用する場合は以下を有効化（M1/M2 Macの場合は不要または別設定が必要な場合あり）
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    command: /bin/bash
+    tty: true
